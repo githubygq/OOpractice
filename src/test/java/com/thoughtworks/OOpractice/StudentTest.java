@@ -18,7 +18,7 @@ public class StudentTest {
     }
 
     @Test
-    public void Student_changename_Test(){
+    public void Student_changclass_Test(){
         //given
         //班级1，老师1
         Teacher teacher1 = new Teacher("Jerry1","21","Teacher");
@@ -46,5 +46,31 @@ public class StudentTest {
 
         //then
         assertEquals(actual,"My name is Tom. I am 21 years old. I am a Student of Class 2 now.");
+    }
+
+    @Test
+    public void Student_changename_Test(){
+        //given
+        //班级1，老师1
+        Teacher teacher1 = new Teacher("Jerry1","21","Teacher");
+        Klass klass1 = new Klass("1",teacher1);
+
+        //班级1学生
+        Student student1 = new Student("Tom1","21",klass1);
+
+        //目标学生
+        Student student = new Student("Tom","21",klass1);
+
+        //目标学生加入1班
+        klass1.getStudents().add(student);
+        klass1.getStudents().add(student1);
+        //when
+        //目标学生改名
+        student.changeName("Kerry");
+        String actual = student1.message;
+        //String actual = teacher1.message;
+
+        //then
+        assertEquals(actual,"My name is Kerry. I am 21 years old. I am a Student of Class 1 now.");
     }
 }
