@@ -7,8 +7,9 @@ public class StudentTest {
     @Test
     public void Student_Test(){
         //given
-       Student student = new Student("Tom","21",2);
-
+        Klass klass = new Klass("2");
+        Student student = new Student("Tom","21",klass);
+        klass.getStudents().add(student);
         //when
         String actual = student.introduce();
 
