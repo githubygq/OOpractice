@@ -7,7 +7,7 @@ public class PersonTest {
     @Test
     public void Person_Test(){
         //given
-       Person person = new Person();
+       Person person = new Person("Tom","21");
 
         //when
         String actual = person.introduce();
